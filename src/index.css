@@ -103,3 +103,9 @@ html {
 .stagger-3 { animation-delay: 300ms; }
 .stagger-4 { animation-delay: 400ms; }
 .stagger-5 { animation-delay: 500ms; }
+
+/* Custom styles for co-working search app */
+.blue-header {
+  background-color: #0080ff;
+  color: white;
+}

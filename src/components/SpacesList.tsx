@@ -27,17 +27,14 @@ const SpacesList: React.FC = () => {
   }, []);
 
   return (
-    <section id="results" className="py-16 bg-gradient-to-b from-background to-secondary/30">
-      <div className="container max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="results" className="py-8 bg-gradient-to-b from-background to-secondary/30">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold mb-4">Available Spaces</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Browse our curated selection of premium co-working spaces from industry leaders.
-          </p>
+        <div className="mb-6 text-center">
+          <h2 className="text-2xl font-bold mb-2">Co-Working Space Finder</h2>
           
           {/* Filter input */}
-          <div className="relative max-w-md mx-auto mt-6">
+          <div className="relative max-w-md mx-auto mt-4 mb-8">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <Search className="h-5 w-5 text-muted-foreground" />
             </div>
@@ -45,18 +42,23 @@ const SpacesList: React.FC = () => {
               type="text"
               value={filterText}
               onChange={(e) => setFilterText(e.target.value)}
-              placeholder="Filter spaces..."
+              placeholder="Search for spaces or location..."
               className="block w-full pl-10 pr-3 py-2 border border-gray-200 rounded-lg bg-white/50 backdrop-blur-sm focus:ring-2 focus:ring-primary/20 focus:border-primary focus:outline-none"
             />
+            <button 
+              className="absolute inset-y-0 right-0 px-4 py-2 bg-blue-500 text-white rounded-r-lg"
+            >
+              Search
+            </button>
           </div>
         </div>
         
         {/* Spaces grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {filteredSpaces.map((space, index) => (
             <div 
               key={space.id} 
-              className={`opacity-0 animate-fade-in stagger-${(index % 5) + 1}`}
+              className="opacity-0 animate-fade-in"
               style={{ animationDelay: `${100 + index * 50}ms` }}
             >
               <SpaceCard space={space} />
