@@ -1,6 +1,5 @@
 
 import React from 'react';
-import SearchBox from './SearchBox';
 
 const Hero: React.FC = () => {
   return (
@@ -10,11 +9,6 @@ const Hero: React.FC = () => {
         <h1 className="text-2xl font-bold text-center mb-4">
           Co-Working Space Finder
         </h1>
-        
-        {/* Search Box */}
-        <div className="max-w-md mx-auto">
-          <SearchBox />
-        </div>
       </div>
     </section>
   );
