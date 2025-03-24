@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { type CoworkingSpace } from '../lib/data';
+import { Card, CardContent } from './ui/card';
 
 interface SpaceCardProps {
   space: CoworkingSpace;
@@ -8,14 +9,14 @@ interface SpaceCardProps {
 
 const SpaceCard: React.FC<SpaceCardProps> = ({ space }) => {
   return (
-    <div className="bg-white rounded-md shadow-sm overflow-hidden h-full">
-      <div className="p-4 border-t-4 border-blue-500">
-        <h3 className="font-bold text-md mb-1">{space.name}</h3>
-        <p className="text-xs text-gray-600 mb-1">Location: {space.location}</p>
+    <Card className="hover:shadow-md transition-all duration-200 h-full border-t-4 border-blue-500">
+      <CardContent className="p-4">
+        <h3 className="font-bold text-md mb-1 truncate">{space.name}</h3>
+        <p className="text-xs text-gray-600 mb-1 truncate">Location: {space.location}</p>
         <p className="text-xs text-gray-600 mb-1">Price: {space.priceRange}/month</p>
         
         <div className="mt-2">
-          <p className="text-xs text-gray-600">
+          <p className="text-xs text-gray-600 line-clamp-1">
             <span className="font-semibold">Amenities:</span> {space.amenities.slice(0, 2).join(', ')}
           </p>
         </div>
@@ -23,8 +24,8 @@ const SpaceCard: React.FC<SpaceCardProps> = ({ space }) => {
         <button className="mt-3 w-full py-1 px-2 bg-blue-500 text-white text-xs rounded-sm hover:bg-blue-600 transition-colors">
           Find Now
         </button>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 };
 

@@ -17,6 +17,11 @@ const SpacesList: React.FC = () => {
       )
     : coworkingSpaces;
 
+  // Sort spaces alphabetically by name
+  const sortedSpaces = [...filteredSpaces].sort((a, b) => 
+    a.name.localeCompare(b.name)
+  );
+
   // Set up staggered animation on initial load
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -49,8 +54,8 @@ const SpacesList: React.FC = () => {
         </div>
         
         {/* Spaces grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {filteredSpaces.map((space, index) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          {sortedSpaces.map((space, index) => (
             <div 
               key={space.id} 
               className="opacity-0 animate-fade-in"
@@ -60,7 +65,7 @@ const SpacesList: React.FC = () => {
             </div>
           ))}
           
-          {filteredSpaces.length === 0 && (
+          {sortedSpaces.length === 0 && (
             <div className="col-span-full text-center py-12">
               <p className="text-lg text-muted-foreground">
                 No spaces found matching "{filterText}"

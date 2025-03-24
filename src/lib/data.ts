@@ -10,8 +10,18 @@ export interface CoworkingSpace {
   description: string;
 }
 
-// Alphabetically sorted co-working spaces
+// Coworking spaces data (will be automatically sorted alphabetically in the component)
 export const coworkingSpaces: CoworkingSpace[] = [
+  {
+    id: "accenture",
+    name: "Accenture",
+    logo: "https://placehold.co/100x50/f8f9fa/343a40?text=Accenture",
+    location: "Dublin, Ireland",
+    rating: 4.3,
+    priceRange: "$$$",
+    amenities: ["Conference Rooms", "High-speed WiFi", "Training Centers"],
+    description: "Modern workspaces designed for innovation and collaboration with global connectivity."
+  },
   {
     id: "amazon",
     name: "Amazon Workspace",
