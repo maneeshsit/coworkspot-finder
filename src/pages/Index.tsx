@@ -1,9 +1,23 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import SpacesList from '../components/SpacesList';
+import AboutSection from '../components/AboutSection';
+import ContactSection from '../components/ContactSection';
+import FaqSection from '../components/FaqSection';
+import { SignInModal } from '../components/SignInModal';
 
 const Index: React.FC = () => {
+  const [isSignInOpen, setIsSignInOpen] = useState(false);
+  
+  // Handle scroll to section
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -13,10 +27,52 @@ const Index: React.FC = () => {
         </div>
         
         <nav className="hidden md:flex space-x-1">
-          <a href="#" className="px-3 py-2 text-sm text-foreground hover:text-primary transition-colors">Spaces</a>
-          <a href="#" className="px-3 py-2 text-sm text-foreground hover:text-primary transition-colors">About</a>
-          <a href="#" className="px-3 py-2 text-sm text-foreground hover:text-primary transition-colors">Contact</a>
-          <a href="#" className="ml-2 px-4 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">Sign In</a>
+          <a 
+            href="#spaces" 
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('results');
+            }}
+            className="px-3 py-2 text-sm text-foreground hover:text-primary transition-colors"
+          >
+            Spaces
+          </a>
+          <a 
+            href="#about" 
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('about');
+            }}
+            className="px-3 py-2 text-sm text-foreground hover:text-primary transition-colors"
+          >
+            About
+          </a>
+          <a 
+            href="#contact" 
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('contact');
+            }}
+            className="px-3 py-2 text-sm text-foreground hover:text-primary transition-colors"
+          >
+            Contact
+          </a>
+          <a 
+            href="#faq" 
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('faq');
+            }}
+            className="px-3 py-2 text-sm text-foreground hover:text-primary transition-colors"
+          >
+            FAQ
+          </a>
+          <button 
+            onClick={() => setIsSignInOpen(true)}
+            className="ml-2 px-4 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+          >
+            Sign In
+          </button>
         </nav>
         
         {/* Mobile menu button */}
@@ -33,6 +89,15 @@ const Index: React.FC = () => {
       {/* Spaces List Section */}
       <SpacesList />
       
+      {/* About Section */}
+      <AboutSection />
+      
+      {/* Contact Section */}
+      <ContactSection />
+      
+      {/* FAQ Section */}
+      <FaqSection />
+      
       {/* Footer */}
       <footer className="bg-secondary/50 py-12">
         <div className="container max-w-6xl mx-auto px-4 sm:px-6">
@@ -48,10 +113,54 @@ const Index: React.FC = () => {
             <div>
               <h3 className="font-medium mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Spaces</a></li>
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">About Us</a></li>
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
-                <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">FAQ</a></li>
+                <li>
+                  <a 
+                    href="#spaces" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection('results');
+                    }}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Spaces
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#about" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection('about');
+                    }}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#contact" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection('contact');
+                    }}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Contact
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#faq" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection('faq');
+                    }}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    FAQ
+                  </a>
+                </li>
               </ul>
             </div>
             
@@ -78,6 +187,9 @@ const Index: React.FC = () => {
           </div>
         </div>
       </footer>
+      
+      {/* Sign In Modal */}
+      <SignInModal open={isSignInOpen} onOpenChange={setIsSignInOpen} />
     </div>
   );
 };
