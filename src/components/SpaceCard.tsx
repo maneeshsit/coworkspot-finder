@@ -13,7 +13,7 @@ const SpaceCard: React.FC<SpaceCardProps> = ({ space }) => {
       <CardContent className="p-4">
         <h3 className="font-bold text-md mb-1 truncate">{space.name}</h3>
         <p className="text-xs text-gray-600 mb-1 truncate">Location: {space.location}</p>
-        <p className="text-xs text-gray-600 mb-1">Price: {space.priceRange}/month</p>
+        <p className="text-xs text-gray-600 mb-1">Price: $150/month</p>
         
         <div className="mt-2">
           <p className="text-xs text-gray-600 line-clamp-1">
