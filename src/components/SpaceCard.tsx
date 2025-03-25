@@ -9,7 +9,7 @@ interface SpaceCardProps {
 
 const SpaceCard: React.FC<SpaceCardProps> = ({ space }) => {
   return (
-    <Card className="hover:shadow-md transition-all duration-200 h-full border-t-4 border-blue-500">
+    <Card className="h-full border-t-4 border-blue-500 hover:shadow-md transition-all duration-200">
       <CardContent className="p-4">
         <h3 className="font-bold text-md mb-1 truncate">{space.name}</h3>
         <p className="text-xs text-gray-600 mb-1 truncate">Location: {space.location}</p>

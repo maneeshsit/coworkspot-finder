@@ -1,12 +1,11 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { coworkingSpaces } from '../lib/data';
 import SpaceCard from './SpaceCard';
 import { Search } from 'lucide-react';
 
 const SpacesList: React.FC = () => {
   const [filterText, setFilterText] = useState('');
-  const [staggeredSpaces, setStaggeredSpaces] = useState(coworkingSpaces);
 
   // Filter spaces based on search
   const filteredSpaces = filterText
@@ -21,15 +20,6 @@ const SpacesList: React.FC = () => {
   const sortedSpaces = [...filteredSpaces].sort((a, b) => 
     a.name.localeCompare(b.name)
   );
-
-  // Set up staggered animation on initial load
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setStaggeredSpaces(coworkingSpaces);
-    }, 100);
-    
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <section id="results" className="py-8 bg-gradient-to-b from-background to-secondary/30">
@@ -46,21 +36,12 @@ const SpacesList: React.FC = () => {
             placeholder="Search for spaces or location..."
             className="block w-full pl-10 pr-3 py-2 border border-gray-200 rounded-lg bg-white/50 backdrop-blur-sm focus:ring-2 focus:ring-primary/20 focus:border-primary focus:outline-none"
           />
-          <button 
-            className="absolute inset-y-0 right-0 px-4 py-2 bg-blue-500 text-white rounded-r-lg"
-          >
-            Search
-          </button>
         </div>
         
         {/* Spaces grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {sortedSpaces.map((space, index) => (
-            <div 
-              key={space.id} 
-              className="opacity-0 animate-fade-in"
-              style={{ animationDelay: `${100 + index * 50}ms` }}
-            >
+          {sortedSpaces.map((space) => (
+            <div key={space.id}>
               <SpaceCard space={space} />
             </div>
           ))}
