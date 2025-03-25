@@ -16,8 +16,8 @@ const SpaceCard: React.FC<SpaceCardProps> = ({ space }) => {
         <p className="text-xs text-gray-600 mb-1">Price: $150/month</p>
         
         <div className="mt-2">
-          <p className="text-xs text-gray-600 line-clamp-1">
-            <span className="font-semibold">Amenities:</span> {space.amenities.slice(0, 2).join(', ')}
+          <p className="text-xs text-gray-600 line-clamp-2">
+            <span className="font-semibold">Amenities:</span> {space.amenities.join(', ')}
           </p>
         </div>
         
