@@ -2,15 +2,19 @@
 import React, { useState, useEffect } from 'react';
 import { coworkingSpaces } from '../lib/data';
 import SpaceCard from './SpaceCard';
-import { Search, Filter } from 'lucide-react';
+import { Search, Filter, MapPin } from 'lucide-react';
 import { Input } from './ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Button } from './ui/button';
+
+// Define Indian cities for filter section
+const indianCities = ["Hyderabad", "Pune", "Mumbai", "Bangalore", "Noida"];
 
 const SpacesList: React.FC = () => {
   const [filterText, setFilterText] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
   const [selectedAmenity, setSelectedAmenity] = useState('');
+  const [showIndianOnly, setShowIndianOnly] = useState(false);
 
   // Extract unique locations and amenities for filters
   const uniqueLocations = [...new Set(coworkingSpaces.map(space => space.location))].sort();
@@ -35,7 +39,11 @@ const SpacesList: React.FC = () => {
     const matchesAmenity = !selectedAmenity || 
       space.amenities.some(amenity => amenity === selectedAmenity);
     
-    return matchesText && matchesLocation && matchesAmenity;
+    // Indian cities filter
+    const matchesIndian = !showIndianOnly || 
+      indianCities.some(city => space.location.includes(city));
+    
+    return matchesText && matchesLocation && matchesAmenity && matchesIndian;
   });
 
   // Sort spaces alphabetically by name
@@ -48,6 +56,13 @@ const SpacesList: React.FC = () => {
     setFilterText('');
     setSelectedLocation('');
     setSelectedAmenity('');
+    setShowIndianOnly(false);
+  };
+
+  // Quick filter for Indian locations
+  const handleShowIndianOnly = () => {
+    setShowIndianOnly(!showIndianOnly);
+    setSelectedLocation(''); // Clear location filter when using the Indian filter
   };
 
   return (
@@ -69,6 +84,18 @@ const SpacesList: React.FC = () => {
               placeholder="Search by name, location or amenities..."
               className="pl-10 pr-3 w-full"
             />
+          </div>
+          
+          {/* Indian locations quick filter */}
+          <div className="flex justify-center mb-4">
+            <Button
+              variant={showIndianOnly ? "default" : "outline"}
+              onClick={handleShowIndianOnly}
+              className="flex items-center gap-2"
+            >
+              <MapPin className="h-4 w-4" />
+              {showIndianOnly ? "Showing Indian Locations" : "Show Indian Locations Only"}
+            </Button>
           </div>
           
           {/* Filters */}
