@@ -9,7 +9,7 @@ import { Button } from './ui/button';
 // Define Indian cities for filter section
 const indianCities = [
   "Hyderabad", "Pune", "Mumbai", "Bangalore", "Noida", 
-  "Lucknow", "Visakhapatnam", "Vizag", "Kanpur", "Indore", "Bhopal", "Navi Mumbai"
+  "Lucknow", "Visakhapatnam", "Kanpur", "Indore", "Bhopal", "Navi Mumbai"
 ];
 
 const SpacesList: React.FC = () => {
