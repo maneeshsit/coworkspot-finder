@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { coworkingSpaces } from '../lib/data';
 import SpaceCard from './SpaceCard';
@@ -11,7 +10,11 @@ import { Button } from './ui/button';
 const indianCities = [
   "Hyderabad", "Pune", "Mumbai", "Bangalore", "Noida", 
   "Lucknow", "Visakhapatnam", "Kanpur", "Indore", "Bhopal", "Navi Mumbai", 
-  "Chennai", "Kolkata", "Coimbatore", "Kochi"
+  "Chennai", "Kolkata", "Coimbatore", "Kochi",
+  
+  "Gurgaon", "Delhi", "Ahmedabad", "Chandigarh", "Jaipur", 
+  "Trivandrum", "Bhubaneswar", "Mysore", "Nagpur", "Guwahati",
+  "Mangalore", "Vadodara", "Thiruvananthapuram", "Gandhinagar"
 ];
 
 const SpacesList: React.FC = () => {
