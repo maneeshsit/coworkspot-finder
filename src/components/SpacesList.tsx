@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { coworkingSpaces } from '../lib/data';
 import SpaceCard from './SpaceCard';
@@ -9,7 +10,8 @@ import { Button } from './ui/button';
 // Define Indian cities for filter section
 const indianCities = [
   "Hyderabad", "Pune", "Mumbai", "Bangalore", "Noida", 
-  "Lucknow", "Visakhapatnam", "Kanpur", "Indore", "Bhopal", "Navi Mumbai"
+  "Lucknow", "Visakhapatnam", "Kanpur", "Indore", "Bhopal", "Navi Mumbai", 
+  "Chennai", "Kolkata", "Coimbatore", "Kochi"
 ];
 
 const SpacesList: React.FC = () => {

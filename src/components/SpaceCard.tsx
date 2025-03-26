@@ -11,8 +11,9 @@ interface SpaceCardProps {
 
 // Define Indian cities (kept for reference but not used for special styling anymore)
 const indianCities = [
-  "Hyderabad", "Pune", "Mumbai", "Bangalore", "Bengaluru", "Noida", 
-  "Lucknow", "Visakhapatnam", "Vizag", "Kanpur", "Indore", "Bhopal", "Navi Mumbai"
+  "Hyderabad", "Pune", "Mumbai", "Bangalore", "Noida", 
+  "Lucknow", "Visakhapatnam", "Kanpur", "Indore", "Bhopal", "Navi Mumbai",
+  "Chennai", "Kolkata", "Coimbatore", "Kochi"
 ];
 
 const SpaceCard: React.FC<SpaceCardProps> = ({ space }) => {
