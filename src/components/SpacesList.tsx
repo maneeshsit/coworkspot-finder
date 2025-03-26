@@ -8,7 +8,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Button } from './ui/button';
 
 // Define Indian cities for filter section
-const indianCities = ["Hyderabad", "Pune", "Mumbai", "Bangalore", "Noida"];
+const indianCities = [
+  "Hyderabad", "Pune", "Mumbai", "Bangalore", "Noida", 
+  "Lucknow", "Visakhapatnam", "Vizag", "Kanpur", "Indore", "Bhopal", "Navi Mumbai"
+];
 
 const SpacesList: React.FC = () => {
   const [filterText, setFilterText] = useState('');

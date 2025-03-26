@@ -1,4 +1,3 @@
-
 export interface CoworkingSpace {
   id: string;
   name: string;
@@ -171,5 +170,115 @@ export const coworkingSpaces: CoworkingSpace[] = [
     priceRange: "$$",
     amenities: ["Innovation Labs", "Meeting Rooms", "Cafeteria"],
     description: "Technology-focused workspaces with comprehensive facilities and support services."
+  },
+  {
+    id: "91springboard",
+    name: "91springboard",
+    logo: "https://placehold.co/100x50/f8f9fa/343a40?text=91springboard",
+    location: "Indore, India",
+    rating: 4.3,
+    priceRange: "$$",
+    amenities: ["Free Beverages", "High-speed WiFi", "Conference Rooms", "24/7 Access"],
+    description: "Vibrant co-working space with a community focus and modern amenities."
+  },
+  {
+    id: "bhiveworkspace",
+    name: "BHIVE Workspace",
+    logo: "https://placehold.co/100x50/f8f9fa/343a40?text=BHIVE",
+    location: "Bengaluru, India",
+    rating: 4.4,
+    priceRange: "$$",
+    amenities: ["Meeting Rooms", "Event Space", "Power Backup", "Parking"],
+    description: "Professional workspace with premium infrastructure for startups and enterprises."
+  },
+  {
+    id: "cowrks",
+    name: "CoWrks",
+    logo: "https://placehold.co/100x50/f8f9fa/343a40?text=CoWrks",
+    location: "Bengaluru, India",
+    rating: 4.5,
+    priceRange: "$$$",
+    amenities: ["Game Room", "Wellness Zone", "Premium Furniture", "Cafeteria"],
+    description: "Design-focused workspaces that boost productivity and enhance collaboration."
+  },
+  {
+    id: "incuspaze",
+    name: "Incuspaze",
+    logo: "https://placehold.co/100x50/f8f9fa/343a40?text=Incuspaze",
+    location: "Lucknow, India",
+    rating: 4.0,
+    priceRange: "$$",
+    amenities: ["Business Support", "Meeting Rooms", "Cafeteria", "Lounge Area"],
+    description: "Premium managed office spaces with a focus on productivity and comfort."
+  },
+  {
+    id: "innov8",
+    name: "Innov8",
+    logo: "https://placehold.co/100x50/f8f9fa/343a40?text=Innov8",
+    location: "Mumbai, India",
+    rating: 4.4,
+    priceRange: "$$$",
+    amenities: ["Ergonomic Furniture", "Community Events", "High-Speed Internet", "Refreshments"],
+    description: "Thoughtfully designed spaces that foster innovation and community building."
+  },
+  {
+    id: "indiqube",
+    name: "IndiQube",
+    logo: "https://placehold.co/100x50/f8f9fa/343a40?text=IndiQube",
+    location: "Bengaluru, India",
+    rating: 4.3,
+    priceRange: "$$",
+    amenities: ["Gym", "Food Court", "Breakout Zones", "Gaming Areas"],
+    description: "Flexible workspace solutions designed for the modern workforce."
+  },
+  {
+    id: "mydesk",
+    name: "myDesk",
+    logo: "https://placehold.co/100x50/f8f9fa/343a40?text=myDesk",
+    location: "Visakhapatnam, India",
+    rating: 4.1,
+    priceRange: "$",
+    amenities: ["24/7 Access", "Air Conditioning", "High-Speed Internet", "Meeting Rooms"],
+    description: "Affordable and flexible workspace solutions for entrepreneurs and small teams."
+  },
+  {
+    id: "spacejam",
+    name: "SpaceJam",
+    logo: "https://placehold.co/100x50/f8f9fa/343a40?text=SpaceJam",
+    location: "Bhopal, India",
+    rating: 4.0,
+    priceRange: "$$",
+    amenities: ["Business Address", "Conference Rooms", "Locker Storage", "Internet"],
+    description: "Professional workspaces with all essential amenities for business growth."
+  },
+  {
+    id: "startupnest",
+    name: "Startup Nest",
+    logo: "https://placehold.co/100x50/f8f9fa/343a40?text=StartupNest",
+    location: "Kanpur, India",
+    rating: 3.9,
+    priceRange: "$",
+    amenities: ["Mentorship Programs", "Networking Events", "Conference Rooms", "High-Speed WiFi"],
+    description: "Supportive environment for startups with mentorship and networking opportunities."
+  },
+  {
+    id: "techcubes",
+    name: "TechCubes",
+    logo: "https://placehold.co/100x50/f8f9fa/343a40?text=TechCubes",
+    location: "Navi Mumbai, India",
+    rating: 4.2,
+    priceRange: "$$",
+    amenities: ["IT Support", "Meeting Rooms", "Recreation Area", "Cafeteria"],
+    description: "Tech-focused workspace designed for IT professionals and tech startups."
+  },
+  {
+    id: "workafella",
+    name: "Workafella",
+    logo: "https://placehold.co/100x50/f8f9fa/343a40?text=Workafella",
+    location: "Hyderabad, India",
+    rating: 4.3,
+    priceRange: "$$",
+    amenities: ["Conference Rooms", "Coffee Bar", "Wellness Room", "Outdoor Terrace"],
+    description: "Premium workspace solution with hospitality-inspired service and amenities."
   }
 ];

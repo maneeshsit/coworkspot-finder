@@ -10,7 +10,10 @@ interface SpaceCardProps {
 }
 
 // Define Indian cities to highlight
-const indianCities = ["Hyderabad", "Pune", "Mumbai", "Bangalore", "Noida", "Bengaluru"];
+const indianCities = [
+  "Hyderabad", "Pune", "Mumbai", "Bangalore", "Bengaluru", "Noida", 
+  "Lucknow", "Visakhapatnam", "Vizag", "Kanpur", "Indore", "Bhopal", "Navi Mumbai"
+];
 
 const SpaceCard: React.FC<SpaceCardProps> = ({ space }) => {
   const { toast } = useToast();
