@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { coworkingSpaces } from '../lib/data';
 import SpaceCard from './SpaceCard';
@@ -146,35 +145,35 @@ const SpacesList: React.FC = () => {
               </Button>
             </div>
           </div>
-        </div>
-        
-        {/* Results count */}
-        <div className="mb-4 text-sm text-muted-foreground">
-          <p>{sortedSpaces.length} spaces found</p>
-        </div>
-        
-        {/* Spaces grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {sortedSpaces.map((space) => (
-            <div key={space.id}>
-              <SpaceCard space={space} />
-            </div>
-          ))}
           
-          {sortedSpaces.length === 0 && (
-            <div className="col-span-full text-center py-12">
-              <p className="text-lg text-muted-foreground">
-                No spaces found matching your criteria
-              </p>
-              <Button 
-                onClick={resetFilters}
-                className="mt-4"
-                variant="outline"
-              >
-                Clear all filters
-              </Button>
-            </div>
-          )}
+          {/* Results count */}
+          <div className="mb-4 text-sm text-muted-foreground">
+            <p>{sortedSpaces.length} spaces found</p>
+          </div>
+          
+          {/* Spaces grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {sortedSpaces.map((space) => (
+              <div key={space.id}>
+                <SpaceCard space={space} />
+              </div>
+            ))}
+            
+            {sortedSpaces.length === 0 && (
+              <div className="col-span-full text-center py-12">
+                <p className="text-lg text-muted-foreground">
+                  No spaces found matching your criteria
+                </p>
+                <Button 
+                  onClick={resetFilters}
+                  className="mt-4"
+                  variant="outline"
+                >
+                  Clear all filters
+                </Button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>
