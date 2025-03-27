@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { type CoworkingSpace } from '../lib/data';
 import { Card, CardContent } from './ui/card';
@@ -17,7 +18,10 @@ const indianCities = [
   // Added IT company locations
   "Gurgaon", "Delhi", "Ahmedabad", "Chandigarh", "Jaipur", 
   "Trivandrum", "Bhubaneswar", "Mysore", "Nagpur", "Guwahati",
-  "Mangalore", "Vadodara", "Thiruvananthapuram", "Gandhinagar"
+  "Mangalore", "Vadodara", "Thiruvananthapuram", "Gandhinagar",
+  
+  // Added Capgemini India locations
+  "Airoli", "Bengaluru", "Hinjawadi", "Whitefield", "Talawade"
 ];
 
 const SpaceCard: React.FC<SpaceCardProps> = ({ space }) => {

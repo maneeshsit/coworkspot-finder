@@ -14,7 +14,9 @@ const indianCities = [
   
   "Gurgaon", "Delhi", "Ahmedabad", "Chandigarh", "Jaipur", 
   "Trivandrum", "Bhubaneswar", "Mysore", "Nagpur", "Guwahati",
-  "Mangalore", "Vadodara", "Thiruvananthapuram", "Gandhinagar"
+  "Mangalore", "Vadodara", "Thiruvananthapuram", "Gandhinagar",
+  
+  "Airoli", "Bengaluru", "Hinjawadi", "Whitefield", "Talawade"
 ];
 
 const SpacesList: React.FC = () => {
