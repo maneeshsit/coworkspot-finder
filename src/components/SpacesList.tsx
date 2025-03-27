@@ -20,17 +20,34 @@ const indianCities = [
   "Airoli", "Bengaluru", "Hinjawadi", "Whitefield", "Talawade"
 ];
 
+// City name normalization map
+const cityNameMap: Record<string, string> = {
+  "Bengaluru": "Bangalore",
+  "Thiruvananthapuram": "Trivandrum"
+};
+
 const SpacesList: React.FC = () => {
   const [filterText, setFilterText] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
   const [selectedAmenity, setSelectedAmenity] = useState('');
   const [showIndianOnly, setShowIndianOnly] = useState(false);
 
-  // Extract unique locations and amenities for filters
-  // Using Map to store unique locations to preserve order, then convert back to array
+  // Normalize location names for consistency
+  const normalizeLocationName = (location: string): string => {
+    // Extract city name from location (e.g., "Mumbai, India" -> "Mumbai")
+    const cityName = location.split(',')[0].trim();
+    
+    // Check if this city has a normalized name
+    return cityNameMap[cityName] ? 
+      location.replace(cityName, cityNameMap[cityName]) : 
+      location;
+  };
+
+  // Extract unique locations and amenities for filters with normalization
   const uniqueLocationsMap = new Map();
   coworkingSpaces.forEach(space => {
-    uniqueLocationsMap.set(space.location, space.location);
+    const normalizedLocation = normalizeLocationName(space.location);
+    uniqueLocationsMap.set(normalizedLocation, normalizedLocation);
   });
   const uniqueLocations = Array.from(uniqueLocationsMap.values()).sort();
   
@@ -38,17 +55,20 @@ const SpacesList: React.FC = () => {
   const allAmenities = coworkingSpaces.flatMap(space => space.amenities);
   const uniqueAmenities = [...new Set(allAmenities)].sort();
   
-  // Filter spaces based on search and filters
+  // Filter spaces based on search and filters with normalization
   const filteredSpaces = coworkingSpaces.filter(space => {
+    // Normalize current space location
+    const normalizedSpaceLocation = normalizeLocationName(space.location);
+    
     // Text search filter (name, location, description)
     const matchesText = !filterText || 
       space.name.toLowerCase().includes(filterText.toLowerCase()) ||
-      space.location.toLowerCase().includes(filterText.toLowerCase()) ||
+      normalizedSpaceLocation.toLowerCase().includes(filterText.toLowerCase()) ||
       space.description.toLowerCase().includes(filterText.toLowerCase()) ||
       space.amenities.some(amenity => amenity.toLowerCase().includes(filterText.toLowerCase()));
     
-    // Location filter
-    const matchesLocation = !selectedLocation || space.location === selectedLocation;
+    // Location filter (using normalized location names)
+    const matchesLocation = !selectedLocation || normalizedSpaceLocation === selectedLocation;
     
     // Amenity filter
     const matchesAmenity = !selectedAmenity || 
@@ -56,7 +76,7 @@ const SpacesList: React.FC = () => {
     
     // Indian cities filter
     const matchesIndian = !showIndianOnly || 
-      indianCities.some(city => space.location.includes(city));
+      indianCities.some(city => normalizedSpaceLocation.includes(city));
     
     return matchesText && matchesLocation && matchesAmenity && matchesIndian;
   });

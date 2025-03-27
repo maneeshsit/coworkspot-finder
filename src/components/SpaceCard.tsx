@@ -24,12 +24,26 @@ const indianCities = [
   "Airoli", "Bengaluru", "Hinjawadi", "Whitefield", "Talawade"
 ];
 
+// City name normalization map (same as in SpacesList for consistency)
+const cityNameMap: Record<string, string> = {
+  "Bengaluru": "Bangalore",
+  "Thiruvananthapuram": "Trivandrum"
+};
+
 const SpaceCard: React.FC<SpaceCardProps> = ({ space }) => {
   const { toast } = useToast();
   
+  // Normalize location for consistency
+  const normalizeLocationName = (location: string): string => {
+    const cityName = location.split(',')[0].trim();
+    return cityNameMap[cityName] ? 
+      location.replace(cityName, cityNameMap[cityName]) : 
+      location;
+  };
+  
   // Check if space is in an Indian city (kept for reference)
   const isIndianCity = indianCities.some(city => 
-    space.location.includes(city)
+    normalizeLocationName(space.location).includes(city)
   );
   
   const handleFindNow = () => {
