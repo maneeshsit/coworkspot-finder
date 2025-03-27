@@ -11,7 +11,7 @@ interface SpaceCardProps {
 
 // Define Indian cities (kept for reference but not used for special styling anymore)
 const indianCities = [
-  "Hyderabad", "Pune", "Mumbai", "Bangalore", "Noida", 
+  "Hyderabad", "Pune", "Mumbai", "Bengaluru", "Noida", 
   "Lucknow", "Visakhapatnam", "Kanpur", "Indore", "Bhopal", "Navi Mumbai",
   "Chennai", "Kolkata", "Coimbatore", "Kochi",
   
@@ -21,12 +21,12 @@ const indianCities = [
   "Mangalore", "Vadodara", "Thiruvananthapuram", "Gandhinagar",
   
   // Added Capgemini India locations
-  "Airoli", "Bengaluru", "Hinjawadi", "Whitefield", "Talawade"
+  "Airoli", "Hinjawadi", "Whitefield", "Talawade"
 ];
 
 // City name normalization map (same as in SpacesList for consistency)
 const cityNameMap: Record<string, string> = {
-  "Bengaluru": "Bangalore",
+  "Bangalore": "Bengaluru",
   "Thiruvananthapuram": "Trivandrum"
 };
 
