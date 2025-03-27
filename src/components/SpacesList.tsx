@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { coworkingSpaces } from '../lib/data';
 import SpaceCard from './SpaceCard';
@@ -26,7 +27,12 @@ const SpacesList: React.FC = () => {
   const [showIndianOnly, setShowIndianOnly] = useState(false);
 
   // Extract unique locations and amenities for filters
-  const uniqueLocations = [...new Set(coworkingSpaces.map(space => space.location))].sort();
+  // Using Map to store unique locations to preserve order, then convert back to array
+  const uniqueLocationsMap = new Map();
+  coworkingSpaces.forEach(space => {
+    uniqueLocationsMap.set(space.location, space.location);
+  });
+  const uniqueLocations = Array.from(uniqueLocationsMap.values()).sort();
   
   // Get all unique amenities across all spaces
   const allAmenities = coworkingSpaces.flatMap(space => space.amenities);
