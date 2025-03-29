@@ -41,11 +41,6 @@ const SpaceCard: React.FC<SpaceCardProps> = ({ space }) => {
       location;
   };
   
-  // Check if space is in an Indian city (kept for reference)
-  const isIndianCity = indianCities.some(city => 
-    normalizeLocationName(space.location).includes(city)
-  );
-  
   const handleFindNow = () => {
     toast({
       title: "Space Selected",
