@@ -1,3 +1,4 @@
+
 export interface CoworkingSpace {
   id: string;
   name: string;
@@ -75,7 +76,7 @@ export const coworkingSpaces: CoworkingSpace[] = [
     id: "infosys",
     name: "Infosys Workspace",
     logo: "https://placehold.co/100x50/f8f9fa/343a40?text=Infosys",
-    location: "Bangalore, India",
+    location: "Bengaluru, India",
     rating: 4.3,
     priceRange: "$$",
     amenities: ["Green Campus", "Recreation Facilities", "Food Court"],
@@ -165,7 +166,7 @@ export const coworkingSpaces: CoworkingSpace[] = [
     id: "wipro",
     name: "Wipro Workspace",
     logo: "https://placehold.co/100x50/f8f9fa/343a40?text=Wipro",
-    location: "Bangalore, India",
+    location: "Bengaluru, India",
     rating: 4.1,
     priceRange: "$$",
     amenities: ["Innovation Labs", "Meeting Rooms", "Cafeteria"],
